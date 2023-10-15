@@ -9,23 +9,28 @@ namespace Batak
     class Deck
     {
         private List<Card> fullDeck;
-
-        public List<Card> FullDeck { get => fullDeck; set => fullDeck = value; }
+        private List<List<Card>> hands;
 
 
         public Deck()
         {
+            FillDesk();
+        }
 
+        public void FillDesk()
+        {
             FullDeck = new List<Card>();
-            for(int i = 0; i< 52; i++)
+            for (int i = 0; i < 52; i++)
             {
                 FullDeck.Add(new Card(i));
             }
+
+            Hands = new List<List<Card>> { new List<Card>(), new List<Card>(), new List<Card>(), new List<Card>() };
         }
 
-        public List<List<Card>> shuffleHands()
+
+        public void shuffleHands()
         {
-            List<List<Card>> hands = new List<List<Card>> { new List<Card>(), new List<Card>(), new List<Card>(), new List<Card>() };
 
             Random rnd = new Random();
 
@@ -37,15 +42,19 @@ namespace Batak
                 {
                     toHand = rnd.Next(4);
 
-                    if (hands[toHand].Count < 13) 
+                    if (Hands[toHand].Count < 13) 
                     { 
-                        hands[toHand].Add(card);
+                        Hands[toHand].Add(card);
                         break;
                     }
                 } while (true);
 
             }
-            return hands;
         }
+
+
+        public List<Card> FullDeck { get => fullDeck; set => fullDeck = value; }
+        public List<List<Card>> Hands { get => hands; set => hands = value; }
+
     }
 }
