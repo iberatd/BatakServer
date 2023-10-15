@@ -15,6 +15,14 @@ namespace Batak
         public Form1()
         {
             InitializeComponent();
+            BatakGame game = new BatakGame(this);
+            game.Play();
+        }
+
+
+        public void AddTextToTextBox(String s)
+        {
+            textBox1.AppendText(s + Environment.NewLine);
         }
     }
 }
