@@ -36,5 +36,11 @@ namespace Batak
             else
                 Name = (Value + 2).ToString();
         }
+
+        override
+        public String ToString()
+        {
+            return name + color;
+        }
     }
 }
