@@ -26,6 +26,33 @@ namespace Batak
             hand = new List<Card>();
         }
 
+
+        public Card PlayCard(int n) => Hand[n];
+        public void RemoveCard(int n) => Hand.RemoveAt(n);
+
+        public bool HasColor(string color)
+        {
+            foreach ( Card card in Hand) if (card.Color == color) return true;
+            return false;
+        }
+
+        public bool HasGreater(string color, int value)
+        {
+            foreach (Card card in Hand) if (card.Color == color && card.Value > value) return true;
+            return false;
+        }
+
+        public string HandToString()
+        {
+            string result = "";
+            foreach(Card card in hand)
+            {
+                result += card.Name + "" + card.Color + " ";
+            }
+            return result;
+        }
+
+
         public string Name { get => name; set => name = value; }
         public int Point { get => point; set => point = value; }
         public int Id { get => id; set => id = value; }
