@@ -27,7 +27,7 @@ namespace Batak
         }
 
 
-        public Card PlayCard(int n) => Hand[n];
+        public Card SelectCard(int n) => Hand[n];
         public void RemoveCard(int n) => Hand.RemoveAt(n);
 
         public bool HasColor(string color)
